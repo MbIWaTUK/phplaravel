@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\URL;
 class AlbumsController extends Controller
 {
 
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function albums() {
         $albums = Album::paginate(3);
         $pages = $albums->lastPage();
